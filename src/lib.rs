@@ -18,8 +18,10 @@ async fn fetch(req: Request, _env: Env, _ctx: Context) -> Result<Response> {
         }
     }
 
-    let mut status = "Unknown";
-    let mut message = "Unknown".to_string();
+    let mut status = "Invalid";
+    let mut message =
+        "Usage: https://downornot.shantanugoel.com/?url=<URL_TO_CHECK_ALONG_WITH_HTTP(S)>"
+            .to_string();
     if let Some(u) = url_to_check {
         console_debug!("Checking {}", u);
         let resp = reqwest::get(u).await;
